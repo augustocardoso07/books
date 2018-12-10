@@ -24,6 +24,8 @@ class SearchBar extends React.Component {
     return (
       <Input
         placeholder={this.props.query}
+        inputStyle={{textAlign: 'center'}}
+        inputContainerStyle={{borderBottomWidth: 0, }}
         ref={(input) => { this.textInput = input; }}
         onChangeText={(text) => this.setState({ text })}
         onSubmitEditing={this.handleSubmit}
