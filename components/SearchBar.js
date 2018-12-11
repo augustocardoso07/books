@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import {Input, Icon} from 'react-native-elements';
 import {connect} from 'react-redux';
+import window from '../constants/Layout';
 
 import {updateQuery} from '../redux/actions';
 
@@ -16,6 +17,7 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit = () => {
+    if (this.state.text === '') return;
     this.props.updateQuery(this.state.text);
     //console.log(this.state.text)
   }
@@ -25,7 +27,7 @@ class SearchBar extends React.Component {
       <Input
         placeholder={this.props.query}
         inputStyle={{textAlign: 'center'}}
-        inputContainerStyle={{borderBottomWidth: 0, }}
+        inputContainerStyle={{borderBottomWidth: 0, width: window.window.width-114}}
         ref={(input) => { this.textInput = input; }}
         onChangeText={(text) => this.setState({ text })}
         onSubmitEditing={this.handleSubmit}

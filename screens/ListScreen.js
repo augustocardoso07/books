@@ -15,7 +15,7 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
 
 class ListScreen extends React.Component {
   static navigationOptions = {
-    title: 'List',
+    headerBackTitle: null
   };
 
   render() {
@@ -56,6 +56,7 @@ class ListScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: colors.yellowBackground,
   },
   images: {

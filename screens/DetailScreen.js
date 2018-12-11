@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { Icon } from 'react-native-elements';
+import { Icon, Button } from 'react-native-elements';
 import Rating from 'react-native-star-rating';
 
 import colors from '../constants/Colors';
@@ -36,12 +36,18 @@ export default class DetailScreen extends React.Component {
                   selectedStar={(rating) => this.setState({rating})} />
               </View>
               <View style={styles.buttons}>
-                <TouchableOpacity style={styles.buttonBuy} onPress={() => console.log("buy")}>
-                  <Text style={styles.buyText}>BUY</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonFav} onPress={() => console.log("fav")}>
-                  <Icon type='font-awesome' name="heart-o" size={22} color='white' />
-                </TouchableOpacity>
+                <Button title='BUY' buttonStyle={styles.buttonBuy}/>
+                <Button icon={
+                  <Icon 
+                    type='font-awesome' 
+                    name="heart-o" 
+                    size={22} 
+                    color='white' />
+                  }
+                  title=''
+                  buttonStyle={styles.buttonFav}
+                />
+                
               </View>
             </Col>
           </Row>
@@ -100,22 +106,17 @@ const styles = StyleSheet.create({
   },
   buttonBuy: {
     backgroundColor: colors.blueButton,
-    padding: 22,
     borderRadius: 100,
     width: 120,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buyText: {
-    fontWeight: 'bold',
-    color: 'white',
-  },
   buttonFav: {
     backgroundColor: colors.redButton,
     borderRadius: 100,
     height: 40,
-    padding: 12,
+    width: 40,
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 6

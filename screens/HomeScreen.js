@@ -53,6 +53,7 @@ const HOME = [
 class HomeScreen extends React.Component {
   static navigationOptions = {
     headerTitle: 'Books Challenge',
+    headerBackTitle: null,
     headerRight: null,
   };
 
@@ -62,8 +63,8 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView >
-        <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <View >
           {HOME.map((option, i) => (
             <TouchableOpacity key={i} onPress={() => option.touchable && this.props.navigation.navigate(option.destiny)}>
               <ImageOverlay
@@ -84,6 +85,7 @@ class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: colors.yellowBackground,
     padding: 15,
   },
